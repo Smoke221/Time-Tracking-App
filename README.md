@@ -19,7 +19,7 @@ a small team chat window in which same team members can chat with themselves
 Admin/employeer can remove/blacklist users/employees and track their data
 
 
-## structure
+## Structure
 
 ### Frontend
 #### HTML
