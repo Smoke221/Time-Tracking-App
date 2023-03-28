@@ -1,9 +1,7 @@
 # Tme Tracking
 
 
-## Day-1
-
-### 1st issue
+## workflow
 Signup, login along with github and google auth
 
 as soon as someone logs in we redirect them to homepage/dashboard
