@@ -18,3 +18,24 @@ a small team chat window in which same team members can chat with themselves
 ## Admin Works
 Admin/employeer can remove/blacklist users/employees and track their data
 
+
+## structure
+
+### Frontend
+#### HTML
+      |-->Index
+      |-->Signup,login
+      |-->Dashboard
+     
+ 
+### Backend
+      |-->app.js
+      |-->Models
+      |-->Routes
+      |-->Middlewares
+      |-->configs
+         |--->db.js(mongo db connection)
+      |-->.env
+      |-->.gitignore
+      |-->package-lock.json
+      |-->package.json
