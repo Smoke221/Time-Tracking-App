@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Frame | Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- insert nav bar here -->
+    <div id="container">
+        <div id="dash-menu">
+            <a href="">My TimeFrame</a>
+            <a href="">Projects</a>
+            <a href="">Users</a>
+            <a href="">Settings</a>
+        </div>
+        <div id="main-dash">
+            <h1>My TimeFrame</h1>
+            <div class="timer-container">
+                <button class="timer-button" id="timer-button">Start</button>
+                <div class="timer">00:00:00</div>
+            </div>
+            <div id="dash-container">
+                <div id="arrival-time">
+                    <h3>Arrival Time</h3>
+                    <p class="arrival-time"></p>
+                </div>
+                <div id="left-time">
+                    <h3>Left Time</h3>
+                    <p></p>
+                </div>
+                <div id="productive-time">
+                    <h3>Productive Time</h3>
+                    <p></p>
+                </div>
+                <div id="desk-time">
+                    <h3>Desk Time</h3>
+                    <p></p>
+                </div>
+                <div id="time-at-work">
+                    <h3>Time at work</h3>
+                    <p></p>
+                </div>
+                <div id="Unproductive">
+                    <h3>Unproductive Time</h3>
+                    <p></p>
+                </div>
+                <div id="productivity">
+                    <h3>Productivity</h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div id="activity-popup" class="hidden">
+            <h2>Select Activity Type</h2>
+            <button class="activity-button" id="productive-button">Productive</button>
+            <button class="activity-button" id="unproductive-button">Unproductive</button>
+            <button class="activity-button" id="idle-button">Idle</button>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="dashboard.js"></script>
