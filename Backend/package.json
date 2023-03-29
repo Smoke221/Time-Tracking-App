@@ -17,6 +17,7 @@
     "mongoose": "^7.0.3",
     "nodemailer": "^6.9.1",
     "nodemon": "^2.0.22",
+    "otp-generator": "^4.0.1",
     "redis": "^4.6.5",
     "winston": "^3.8.2",
     "winston-mongodb": "^5.1.1"
