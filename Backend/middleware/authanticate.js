@@ -1,0 +1,22 @@
+const { client } = require("../configs/redis");
+const jwt = require("jsonwebtoken")
+
+const authanticate = async (req,res,next)=>{
+    try {
+        const token = req.cookies("token")
+        const blacklist = await client.get("blacklist")
+
+        if(token==blacklist)return res.send({"msg":"Please login again"})
+
+        const decoded = jwt.verify(token,process.env.jwtSecretKey)
+        
+        if(decoded){
+            req.body.userId= decoded.userId
+            next()
+        }
+    } catch (error) {
+        res.send({"error":error.message})
+    }
+}
+
+module.exports={authanticate}
