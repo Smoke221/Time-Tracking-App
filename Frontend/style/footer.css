@@ -1,0 +1,16 @@
+/* footer last */
+#footer-last {
+    width: 100%;
+    background-color: #D6D8D9;
+}
+
+#footer-last1 {
+    padding-top: 5px;
+    width: 80%;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(92, 99, 105);
+    
+}

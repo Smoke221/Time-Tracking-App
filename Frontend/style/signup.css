@@ -64,6 +64,9 @@ label {
     background-color: #4EA819;
     border-radius: 4px;
 }
+#submit-btn:hover{
+    background-color: green;
+}
 hr{
     margin: 30px 0px;
 }
@@ -90,3 +93,50 @@ hr{
     margin: auto;
     padding-top: 220px;
 }
+
+
+#oauth{
+    /* display: block; */
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+#oauth img{
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
+
+  
+/* mediaQuery for small screen */
+
+
+@media only screen and (max-width: 900px) {
+    /* body {
+        background-color: lightblue;
+      } */
+      #signupright{
+          display: none;
+      } 
+      #signupleft{
+          width: 100%;
+          padding-left: 20px;
+      } 
+  }
+  
+  @media only screen and (max-width: 768px) {
+    /* body {
+        background-color: lightblue;
+      } */
+      #signupright{
+          display: none;
+      } 
+      #signupleft{
+          width: 100%;
+          padding-left: 20px;
+      } 
+  }
