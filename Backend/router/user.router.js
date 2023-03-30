@@ -15,18 +15,22 @@ require("dotenv").config();
 userRouter.post("/register", async (req, res) => {
     try {
 
-        const { email, password, role } = req.body
+        const { name ,email, password, role } = req.body
         const clientSideOtp = req.query.otp
-
-
         const otp = await client.get("otp")
-
         console.log(otp,clientSideOtp)
+        console.log(typeof(otp),typeof(clientSideOtp))
+
+
+        // check if user is already register 
+        const user = await userModel.findOne({email})
+        if(user)return res.send({"msg":'user is already register'});
+
 
         if (clientSideOtp === undefined) {
 
             //generate 4 digit otp
-            const otp = otpGenerator.generate(4,{lowerCaseAlphabets:false,upperCaseAlphabets:false,specialChars:false})
+            const otp = otpGenerator.generate(4 ,{lowerCaseAlphabets:false,upperCaseAlphabets:false,specialChars:false})
 
             await client.setEx("otp",60*30,otp)
             generateOtpAndSendEmail(email, otp)
@@ -35,11 +39,11 @@ userRouter.post("/register", async (req, res) => {
 
 
         //check client side otp and server side otp
-        else  if (otp === clientSideOtp) {
+        else  if (clientSideOtp === otp) {
 
             //hash password and save to mongodb
             const hashPassword = await bcrypt.hash(password, +process.env.saltRound)
-            await new userModel({ email, password: hashPassword, role }).save()
+            await new userModel({ name,email, password: hashPassword, role }).save()
             return res.send({ "msg": "SignUp successful" })
 
         } else {
@@ -60,6 +64,7 @@ userRouter.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body
         const user = await userModel.findOne({ email })
+        console.log(email,password)
 
         if (user) {
             const matchPassword = bcrypt.compare(password, user.password)

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signup</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="./style/signup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -22,7 +22,7 @@
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" placeholder="Type in your email address" required>
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Create a password" required>
+                    <input type="password" id="password" name="password" placeholder="Create a password" required minlength="8">
                     <p>By signing up, you agree to our <a href="">terms</a> and <a href="">privacy policy.</a></p>
                     <button type="submit" id="submit-btn">SIGN UP FOR FREE</button>
                 </form>
@@ -46,5 +46,40 @@
         </div>
     </div>
 </body>
+
+<script>
+    let form1 = document.getElementById("form")
+    form1.addEventListener("submit", (e) => {
+        e.preventDefault()
+        const payload = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value
+        }
+        fetch(`http://localhost:8000/user/register`, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        }).then(res => res.json())
+            .then((res) => {
+                if (res.msg === "SignUp successful") {
+                    window.open("signin.html")
+                    //swal("email already register");
+                    
+                } else if(res.msg==="user is already register"){
+                    alert("user already register");
+                    window.open("signin.html")
+                }
+                else {
+                    window.open("otp.html")
+                    localStorage.setItem("userInfo",JSON.stringify(payload))
+                }
+
+            })
+            .catch(err => console.log(err))
+    })
+</script>
 
 </html>
