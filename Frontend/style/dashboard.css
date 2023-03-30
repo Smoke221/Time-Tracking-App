@@ -1,50 +1,73 @@
 /* insert nav css here */
 
 
-*{
+* {
     font-family: 'Lato', sans-serif;
 }
+
 /* dashboard css */
-#container{
+#container {
     display: flex;
 }
-#main-dash{
-    margin-left: 20px;
+
+#main-dash {
+    margin-left: 13.3%;
 }
-#main-dash+h1{
+
+#main-dash+h1 {
     font-size: larger;
 }
-#dash-menu{
+
+#dash-menu {
     display: flex;
     flex-direction: column;
     background-color: #262c30;
     height: 100vh;
-    position: sticky;
     padding: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 150px;
 }
-#dash-menu>a{
+
+#dash-menu>a {
     text-decoration: none;
     color: white;
     margin: 10px 10px;
 }
-.timer-container{
+
+.timer-container {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-#dash-container{
+
+#dash-container {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     height: 40vh;
-    width: 250%;
+    width: 200%;
     gap: 30px;
     box-sizing: border-box;
     margin-top: 40px;
 }
-#dash-container>div{
-    border: 1px solid red;
+
+#dash-container>div {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
+
+#dash-container>div h3,
+#dash-container>div p {
+    margin-left: 20px;
+}
+
+#dash-container>div p {
+    margin-top: 40px;
+    font-size: large;
+}
+
 #activity-popup {
     display: none;
     height: 20vh;
@@ -66,4 +89,141 @@
 
 .activity-button:hover {
     background-color: #3e8e41;
+}
+
+/* apps */
+#track-apps {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 200%;
+    margin-top: 20px;
+}
+
+#productive-apps>div>h3 {
+    color: white;
+    background-color: #4ea819;
+    padding: 8px;
+    text-align: center;
+    font-size: medium;
+}
+
+#unproductive-apps>div>h3 {
+    color: white;
+    background-color: #ff6633;
+    padding: 8px;
+    text-align: center;
+    font-size: medium;
+}
+
+#idle-apps>div>h3 {
+    color: white;
+    background-color: gray;
+    padding: 8px;
+    text-align: center;
+    font-size: medium;
+}
+
+/* category container */
+#categories {
+    width: 200%;
+}
+
+#categories>h3 {
+    text-align: center;
+    background-color: #dc3545;
+    color: white;
+    padding: 8px;
+    font-size: medium;
+}
+
+#category-data {
+    text-align: center;
+}
+
+#category-data>p {
+    color: gray;
+}
+
+/* css for categories list */
+
+.categories-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.office {
+    background-color: #007bff;
+}
+
+.social {
+    background-color: #28a745;
+}
+
+.entertainment {
+    background-color: #dc3545;
+}
+
+.email {
+    background-color: #ffc107;
+}
+
+.graph-container {
+    width: 400px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.bar.office {
+    background-color: #007bff;
+    padding-top: 70px;
+
+}
+
+.bar.social {
+    background-color: #28a745;
+    padding-top: 10px;
+
+}
+
+.bar.entertainment {
+    background-color: #dc3545;
+    padding-top: 20px;
+
+}
+
+.bar.email {
+    background-color: #ffc107;
+    padding-top: 25px;
+}
+
+.bar {
+    height: 30px;
+    flex: 1;
+    margin-right: 10px;
 }
