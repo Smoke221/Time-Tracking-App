@@ -3,9 +3,10 @@ const {connection} = require("./configs/db")
 const { userRouter } = require("./router/user.router")
 const cookieParser= require("cookie-parser")
 const {authanticate} = require("./middleware/authanticate")
+const cors = require("cors")
 require("dotenv").config()
 const app = express()
-
+app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
 
