@@ -1,127 +1,405 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
 
 }
 
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: aliceblue;
+  overflow-y: auto;
+}
+
 nav {
-    width: 100%;
-    position: sticky;
-    top: 0px;
-    height: 12%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
+  width: 100%;
+  position: sticky;
+  top: 0px;
+  height: 12%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
 
 }
 
 .logo-img {
-    width: 15%;
+  width: 15%;
 
 }
 
 .logo-img img {
-    width: 100%;
+  width: 100%;
 }
 
 button {
-    background-color: white;
-    color: black;
-    border: none;
+  background-color: white;
+  color: black;
+  border: none;
 
 }
 
 button:hover {
-    background-color: rgb(238, 48, 51);
-    color: white;
-    border: none;
-   
-    border-radius: 3px;
+  background-color: rgb(238, 48, 51);
+  color: white;
+  border: none;
+
+  border-radius: 3px;
 
 }
 
 #menu-option {
 
-    width: 40%;
-    display: flex;
-    justify-content: space-around;
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
 
 }
 
 #menu-option button,
 .login-signup button {
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 1.0rem;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 1.0rem;
 }
 
 .login-signup {
-    width: 15%;
-    display: flex;
-    justify-content: space-around;
+  width: 15%;
+  display: flex;
+  justify-content: space-around;
 
 }
 
-#loginbtn {
+#signupbtn {
 
-    border: 1px solid black;
-    background-color: white;
-    color: black
+  border: 1px solid black;
+  background-color: white;
+  color: black
 }
-#loginbtn:hover{
-    background-color: greenyellow;
-    color: white;
+
+#signupbtn:hover {
+  background-color: greenyellow;
+  color: white;
 }
-.container{
-    padding-left: 7px;
-    padding-right: 7px;
-    background-color: aliceblue;
-    overflow-y: auto;
-}
-.landing-part{
-     display: flex;
-     height:400px;
-     justify-content: space-between;
-     margin-top: 50px;
+
+.landing-part {
+  display: flex;
+  height: 350px;
+  justify-content: space-between;
+  margin-top: 50px;
 
 }
-.info1{
-    width: 50%;
-    background-color: antiquewhite;
-    /* text-align: center; */
-    /* height: 50%; */
-    padding-left: 10%;
-    padding-top: 7%;
+
+.info1 {
+
+  width: 45%;
+  padding-left: 10%;
+  padding-top: 5%;
+
+
 
 }
-.info1>p+button{
-    background-color: aqua;
-    padding: 3% 20%;
-    border-radius: 3px;
-    margin-top: 50px;
-    margin-bottom: 20px;
+
+.info12 {
+
+  width: 45%;
+  padding-left: 10%;
+
+
+
 }
+
+.info12 img {
+  width: 90%;
+}
+
+.info1>p {
+  margin-top: 5px;
+}
+
+.info1>p+button {
+  background-color: rgb(238, 48, 51);
+  padding: 3% 20%;
+  border-radius: 3px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .info2 {
-    width: 50%;
-    
-    
+  width: 50%;
+
+
 }
+
 .company-logo {
-    height: 200px;
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
 }
+
 .company-logo>div img {
-   
-   width: 100%;
-   align-self: auto;
+
+  width: 100%;
+  align-self: auto;
 }
+
 .stopwach-container {
-    border: 1px solid red;
-    background-color:yellow;
-    height: 500px;
+  border: 1px solid red;
+  background-color: yellow;
+  height: 500px;
 }
+
+.mid-part {
+  display: flex;
+  gap: 5%;
+  margin-top: 10px;
+
+}
+
+.left-side {
+  width: 50%;
+  padding-top: 5%;
+  padding-left: 10%;
+}
+
+.left-side>h1,
+p {
+  margin-bottom: 3%;
+}
+
+.left-part-child {
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5%;
+}
+
+.left-part-child>div {
+  background-color: white;
+  padding: 10%;
+
+}
+
+.left-part-child>div>h3 {
+  margin-bottom: 5%;
+}
+
+.right-side {
+  width: 30%;
+}
+
+.right-side img {
+  width: 100%;
+}
+
+iframe {
+  border-radius: 5px;
+}
+
+#blog-card {
+  width: 350px;
+  height: 350px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-bottom: 50px;
+  background-color: white;
+
+}
+
+#upper-part-blog {
+  display: flex;
+  gap: 20px;
+}
+
+#bloger-img {
+  width: 30%;
+
+}
+
+#upper-part-blog>div img {
+  width: 100%;
+  border-radius: 50%;
+
+}
+
+#blog-content {
+  margin-top: 20px;
+}
+
+#frame1 {
+  display: flex;
+  flex-direction: row;
+  gap: 3%;
+  background-color: aliceblue;
+}
+
+.swiper {
+  margin-top: 30px;
+
+}
+
+.swiper-slide {
+  /* text-align: center; */
+  font-size: 18px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination {
+  margin-top: 50px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: gray;
+  padding: 10px;
+  color: white;
+}
+
+#stopwatch-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40vh;
+  background-color: aliceblue;
+}
+
+#stopwatch-container h1 {
+  color: rgb(238, 48, 51);
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.digit {
+  font-size: 150px;
+  color: black
+}
+
+.txt {
+  font-size: 40px;
+  color: gray;
+}
+
+#buttons {
+  margin-top: 50px;
+}
+
+.btn {
+  width: 100px;
+  padding: 10px 15px;
+  margin: 0px 20px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.5s;
+  color: white;
+  font-weight: 500;
+}
+
+#start {
+  background-color: #009779;
+}
+
+#stop {
+  background-color: #0e85fc;
+}
+
+#reset {
+  background-color: rgb(238, 48, 51);
+}
+/* #toggler {
+  display: none;
+} */
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+.topnav {
+  display: none;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+@media only screen and (max-width: 1200px) {
+
+
+}
+
+
+@media screen and (max-width: 768px) {
+  .logo-img {
+    display: block;
+  }
+  #menu-option {
+
+   display: none;
+  
+  }
+  .login-signup {
+    display: none;
+  }
+  .topnav {
+    display: block;
+  }
+  .digit {
+    font-size: 100px;
+    color: black
+  }
+  
+  .txt {
+    font-size:20px;
+    color: gray;
+  }
+  
+}
+
+@media screen and (max-width: 450px) {}
