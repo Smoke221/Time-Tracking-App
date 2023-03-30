@@ -1,3 +1,12 @@
+// for title date display
+var today = new Date();
+var monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+var month = monthNames[today.getMonth()];
+var day = today.getDate();
+var year = today.getFullYear();
+document.getElementById("title").innerHTML += " " + month + " " + day + ", " + year;
+
 const timerButton = document.querySelector("#timer-button");
 const timerDisplay = document.querySelector(".timer");
 const arrivalTime = document.querySelector(".arrival-time");
@@ -6,8 +15,13 @@ const productiveTime = document.querySelector("#productive-time p");
 const deskTime = document.querySelector("#desk-time p");
 const timeAtWork = document.querySelector("#time-at-work p");
 const unproductiveTime = document.querySelector("#Unproductive p");
+const idleTime = document.querySelector("#idle p")
 const productivity = document.querySelector("#productivity p");
 let popUp = document.querySelector(".hidden")
+
+const productiveAppsDiv = document.querySelector('#productive-data');
+const unproductiveAppsDiv = document.querySelector('#unproductive-data');
+const idleAppsDiv = document.querySelector('#idle-data');
 
 const productiveButton = document.querySelector("#productive-button");
 const unproductiveButton = document.querySelector("#unproductive-button");
@@ -15,6 +29,14 @@ const idleButton = document.querySelector("#idle-button");
 
 var startTime;
 let timerIntervalId;
+var screenTime;
+var screenTimeString
+
+window.onload = function () {
+    screenTime = new Date();
+    screenTimeString = screenTime.toLocaleTimeString();
+};
+
 
 // timerButton.addEventListener("click", function () {
 //     if (!startTime) {
@@ -59,16 +81,23 @@ let isStarted = false;
 var timeString;
 var currTask;
 var timeElapsed;
-var productiveTimeElapsed;
+var productiveTimeElapsed = null || 0
+var unproductiveTimeElapsed = null || 0
+var idleTimeElapsed = null || 0
 var deskTimeElapsed;
 var deskTimeMinutes;
 var lastClickedButton = null;
+var stopTime;
+var stopTimeString;
 
+productiveAppsDiv.textContent = 'No data collected'
+unproductiveAppsDiv.textContent = 'No data collected'
+idleAppsDiv.textContent = 'No data collected'
 
 const buttons = document.querySelectorAll('.activity-button');
 buttons.forEach(button => {
     button.addEventListener('click', (event) => {
-        const lastClickedButton = event.target.textContent;
+        lastClickedButton = event.target.textContent;
     });
 });
 
@@ -97,6 +126,9 @@ function startFunction() {
 }
 
 function stopFunction() {
+    stopTime = new Date()
+    stopTimeString = stopTime.toLocaleTimeString()
+
     clearInterval(timerIntervalId);
     startTime = 0;
     updateTimerDisplay();
@@ -110,7 +142,6 @@ function stopFunction() {
 
     const timeDiffMs = endTime - shuru;
 
-
     if (timeDiffMs < 1000) {
         timeElapsed = `${timeDiffMs} ms`;
     } else if (timeDiffMs < 60000) {
@@ -121,8 +152,41 @@ function stopFunction() {
         timeElapsed = `${Math.round(timeDiffMs / 3600000)} hr`;
     }
 
-    handleProductive()
-    handleUnproductive()
+
+    if (lastClickedButton === 'Productive') {
+        handleProductive()
+    } else if (lastClickedButton === 'Unproductive') {
+        handleUnproductive()
+    } else if (lastClickedButton === 'Idle') {
+        handleIdle()
+    }
+
+    timeAtWork.textContent = unproductiveTimeElapsed + productiveTimeElapsed
+
+
+
+    if (productiveTimeElapsed === 0) {
+        productiveAppsDiv.textContent = 'No data collected'
+    } else {
+        productiveAppsDiv.textContent = productiveTimeElapsed
+
+    }
+
+
+    if (unproductiveTimeElapsed === 0) {
+        unproductiveAppsDiv.textContent = 'No data collected'
+    } else {
+        unproductiveAppsDiv.textContent = 'Time spent on unprodutive apps is' + ' ' + unproductiveTimeElapsed
+
+    }
+
+
+    if (idleTimeElapsed === 0) {
+        idleAppsDiv.textContent = 'No data collected'
+    } else {
+        idleAppsDiv.textContent = idleTimeElapsed
+
+    }
 }
 
 
@@ -133,7 +197,7 @@ function handleProductive() {
 
 
     deskTimeElapsed = parseInt(deskTime.textContent) || 0;
-    deskTimeElapsed += productiveTimeElapsed;
+    deskTimeElapsed += productiveTimeElapsed
     deskTime.textContent = deskTimeElapsed;
 
 
@@ -143,8 +207,26 @@ function handleProductive() {
 }
 
 function handleUnproductive() {
-console.log('working');
+    unproductiveTimeElapsed = parseInt(unproductiveTime.textContent) || 0
+    unproductiveTimeElapsed += timeElapsed;
+    unproductiveTime.textContent = unproductiveTimeElapsed
+
+    deskTimeElapsed = parseInt(deskTime.textContent) || 0;
+    deskTimeElapsed += unproductiveTimeElapsed
+    deskTime.textContent = deskTimeElapsed;
+
 }
+
+function handleIdle() {
+    idleTimeElapsed = parseInt(idleTime.textContent) || 0
+    idleTimeElapsed += timeElapsed;
+    idleTime.textContent = idleTimeElapsed
+
+    deskTimeElapsed = parseInt(deskTime.textContent) || 0;
+    deskTimeElapsed += unproductiveTimeElapsed
+    deskTime.textContent = deskTimeElapsed;
+}
+
 
 function updateTimerDisplay() {
     const timeElapsed = startTime ? new Date() - startTime : 0;
@@ -163,5 +245,6 @@ productiveButton.addEventListener("click", () => {
 unproductiveButton.addEventListener("click", () => {
     popUp.style.display = "none";
 })
-
-
+idleButton.addEventListener("click", () => {
+    popUp.style.display = "none";
+})
