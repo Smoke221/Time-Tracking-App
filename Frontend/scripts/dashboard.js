@@ -1,6 +1,6 @@
-// loading of nav and footer
-$(function () {
-    $("footer").load("footer.html")
+
+$(function (){
+    $("nav").load("navbar.html")
 })
 
 
