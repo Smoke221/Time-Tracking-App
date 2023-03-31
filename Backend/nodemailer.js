@@ -28,14 +28,15 @@ const generateOtpAndSendEmail = (email,otp) => {
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 console.log(error);
-                res.send({ "msg": error.message })
+                // res.send({ "msg": error.message })
             } else {
                 console.log(`Email sent: ${info.response}`);
             }
         });
 
     } catch (error) {
-        res.send({ "error": error.message })
+        // res.send({ "error": error.message })
+        console.log(error);
     }
 }
 

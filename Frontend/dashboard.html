@@ -8,6 +8,7 @@
     <title id="title">Time Frame |</title>
     <link rel="stylesheet" href="./style/dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
@@ -79,7 +80,8 @@
                     <div id="idle-data">No data collected</div>
                 </div>
             </div>
-            <div id="categories"> <h3>Categories</h3>
+            <div id="categories">
+                <h3>Categories</h3>
                 <div id="category-data">
                     <h4>No data collected</h4>
                     <p>Download and log into the desktop app to track URL and app productivity</p>
@@ -100,6 +102,13 @@
                 </div>
 
             </div>
+            <div id="chat-box">
+                <button id="chat-btn">Chat</button>
+                <div id="chat-window">
+                    <div id="message-display"></div>
+                    <input type="text" id="message-input" placeholder="Type a message...">
+                </div>
+            </div>
         </div>
         <div id="activity-popup" class="hidden">
             <h2>Select Activity Type</h2>
@@ -109,6 +118,7 @@
         </div>
     </div>
 </body>
+<footer></footer>
 
 </html>
 <script src="./scripts/dashboard.js"></script>
