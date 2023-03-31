@@ -96,7 +96,7 @@ function stopWatch() {
 
 //  toggler//
 function myFunction() {
-  var x = document.getElementById("myLinks");
+  var x = document.getElementById("menu-option");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {

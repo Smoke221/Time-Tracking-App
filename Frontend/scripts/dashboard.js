@@ -1,3 +1,9 @@
+
+$(function (){
+    $("nav").load("navbar.html")
+})
+
+
 // for title date display
 var today = new Date();
 var monthNames = ["January", "February", "March", "April", "May", "June",
