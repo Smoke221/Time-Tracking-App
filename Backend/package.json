@@ -20,6 +20,7 @@
     "otp-generator": "^4.0.1",
     "redis": "^4.6.5",
     "winston": "^3.8.2",
-    "winston-mongodb": "^5.1.1"
+    "winston-mongodb": "^5.1.1",
+    "ws": "^8.13.0"
   }
 }

@@ -95,6 +95,8 @@ var deskTimeMinutes;
 var lastClickedButton = null;
 var stopTime;
 var stopTimeString;
+var numericValue;
+var parts;
 
 productiveAppsDiv.textContent = 'No data collected'
 unproductiveAppsDiv.textContent = 'No data collected'
@@ -116,6 +118,24 @@ timerButton.addEventListener("click", () => {
     } else {
         timerButton.textContent = 'Start';
         stopFunction();
+        const payload = {
+            arrivalTime,
+            productiveTimeElapsed,
+            unproductiveTimeElapsed,
+            idleTimeElapsed,
+            deskTimeElapsed
+        }
+        fetch(`http://localhost:8000/app/myTimeFrame`, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        }).then(res => res.json())
+            .then((res) => {
+                console.log(res);
+            })
+            .catch(err => console.log(err, err.message))
     }
 })
 function startFunction() {
@@ -158,6 +178,9 @@ function stopFunction() {
         timeElapsed = `${Math.round(timeDiffMs / 3600000)} hr`;
     }
 
+    parts = timeElapsed.split(' ')
+    numericValue = parseInt(parts[0])
+
 
     if (lastClickedButton === 'Productive') {
         handleProductive()
@@ -167,14 +190,14 @@ function stopFunction() {
         handleIdle()
     }
 
-    timeAtWork.textContent = unproductiveTimeElapsed + productiveTimeElapsed
+    timeAtWork.textContent = unproductiveTimeElapsed + productiveTimeElapsed + parts[1]
 
 
 
     if (productiveTimeElapsed === 0) {
         productiveAppsDiv.textContent = 'No data collected'
     } else {
-        productiveAppsDiv.textContent = productiveTimeElapsed
+        productiveAppsDiv.textContent = productiveTimeElapsed + parts[1]
 
     }
 
@@ -182,7 +205,7 @@ function stopFunction() {
     if (unproductiveTimeElapsed === 0) {
         unproductiveAppsDiv.textContent = 'No data collected'
     } else {
-        unproductiveAppsDiv.textContent = 'Time spent on unprodutive apps is' + ' ' + unproductiveTimeElapsed
+        unproductiveAppsDiv.textContent = 'Time spent on unprodutive apps is' + ' ' + unproductiveTimeElapsed + parts[1]
 
     }
 
@@ -190,7 +213,7 @@ function stopFunction() {
     if (idleTimeElapsed === 0) {
         idleAppsDiv.textContent = 'No data collected'
     } else {
-        idleAppsDiv.textContent = idleTimeElapsed
+        idleAppsDiv.textContent = idleTimeElapsed + parts[1]
 
     }
 }
@@ -198,39 +221,37 @@ function stopFunction() {
 
 function handleProductive() {
     productiveTimeElapsed = parseInt(productiveTime.textContent) || 0;
-    productiveTimeElapsed += timeElapsed;
-    productiveTime.textContent = productiveTimeElapsed;
+    productiveTimeElapsed += numericValue;
+    productiveTime.textContent = productiveTimeElapsed + parts[1]
 
 
     deskTimeElapsed = parseInt(deskTime.textContent) || 0;
-    deskTimeElapsed += productiveTimeElapsed
-    deskTime.textContent = deskTimeElapsed;
+    deskTimeElapsed += numericValue
+    deskTime.textContent = deskTimeElapsed + parts[1]
 
 
-
-    deskTimeMinutes = deskTimeElapsed > 0 ? deskTimeElapsed / 60000 : 0;
-    productivity.textContent = `${Math.floor((productiveTimeElapsed / deskTimeMinutes) * 100)}%`;
+    productivity.textContent = `${Math.floor((productiveTimeElapsed / deskTimeElapsed) * 100)}%`;
 }
 
 function handleUnproductive() {
     unproductiveTimeElapsed = parseInt(unproductiveTime.textContent) || 0
-    unproductiveTimeElapsed += timeElapsed;
-    unproductiveTime.textContent = unproductiveTimeElapsed
+    unproductiveTimeElapsed += numericValue;
+    unproductiveTime.textContent = unproductiveTimeElapsed + parts[1]
 
     deskTimeElapsed = parseInt(deskTime.textContent) || 0;
-    deskTimeElapsed += unproductiveTimeElapsed
-    deskTime.textContent = deskTimeElapsed;
+    deskTimeElapsed += numericValue
+    deskTime.textContent = deskTimeElapsed + parts[1]
 
 }
 
 function handleIdle() {
     idleTimeElapsed = parseInt(idleTime.textContent) || 0
-    idleTimeElapsed += timeElapsed;
-    idleTime.textContent = idleTimeElapsed
+    idleTimeElapsed += numericValue;
+    idleTime.textContent = idleTimeElapsed + parts[1]
 
     deskTimeElapsed = parseInt(deskTime.textContent) || 0;
-    deskTimeElapsed += unproductiveTimeElapsed
-    deskTime.textContent = deskTimeElapsed;
+    deskTimeElapsed += numericValue
+    deskTime.textContent = deskTimeElapsed + parts[1]
 }
 
 
@@ -254,3 +275,46 @@ unproductiveButton.addEventListener("click", () => {
 idleButton.addEventListener("click", () => {
     popUp.style.display = "none";
 })
+
+
+
+
+// for chat box
+const chatBtn = document.getElementById("chat-btn");
+const chatWindow = document.getElementById("chat-window");
+const messageDisplay = document.getElementById("message-display");
+const messageInput = document.getElementById("message-input");
+
+
+const socket = new WebSocket("ws://localhost:3000");
+
+
+socket.onopen = function (event) {
+    console.log("WebSocket connection opened:", event);
+};
+
+
+socket.onmessage = function (event) {
+    console.log("WebSocket message received:", event.data);
+    messageDisplay.innerHTML += "<p>" + event.data + "</p>";
+};
+
+
+socket.onerror = function (event) {
+    console.error("WebSocket error:", event);
+};
+
+
+messageInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        const message = messageInput.value;
+        console.log("Sending message:", message);
+        socket.send(message);
+        messageInput.value = "";
+    }
+});
+
+chatBtn.addEventListener("click", function () {
+    chatWindow.style.display = chatWindow.style.display === "none" ? "block" : "none";
+});
