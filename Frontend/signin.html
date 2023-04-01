@@ -54,6 +54,7 @@
             password:document.getElementById("password").value
         }
        console.log(payload);
+       
         fetch(`http://localhost:8000/user/login`,{
             method: "POST",
             headers: {
@@ -66,7 +67,8 @@
             console.log(res);
             if(res.msg==="login successful"){
                 alert(res.msg)
-                window.open("index.html")
+                localStorage.setItem("token",res.token)
+                window.open("deshbord.html")
             }else if(res.error){
                 alert(res.error)
             }else{

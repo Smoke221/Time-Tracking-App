@@ -15,42 +15,42 @@ require("dotenv").config();
 userRouter.post("/register", async (req, res) => {
     try {
 
-        const { name ,email, password, role } = req.body
+        const { name, email, password, role } = req.body
         const clientSideOtp = req.query.otp
         const otp = await client.get("otp")
-        console.log(otp,clientSideOtp)
-        console.log(typeof(otp),typeof(clientSideOtp))
+        console.log(otp, clientSideOtp)
+        console.log(typeof (otp), typeof (clientSideOtp))
 
 
         // check if user is already register 
-        const user = await userModel.findOne({email})
-        if(user)return res.send({"msg":'user is already register'});
+        const user = await userModel.findOne({ email })
+        if (user) return res.send({ "msg": 'user is already register' });
 
 
         if (clientSideOtp === undefined) {
 
             //generate 4 digit otp
-            const otp = otpGenerator.generate(4 ,{lowerCaseAlphabets:false,upperCaseAlphabets:false,specialChars:false})
+            const otp = otpGenerator.generate(4, { lowerCaseAlphabets: false, upperCaseAlphabets: false, specialChars: false })
 
-            await client.setEx("otp",60*30,otp)
+            await client.setEx("otp", 60 * 30, otp)
             generateOtpAndSendEmail(email, otp)
 
         }
 
 
         //check client side otp and server side otp
-        else  if (clientSideOtp === otp) {
+        else if (clientSideOtp === otp) {
 
             //hash password and save to mongodb
             const hashPassword = await bcrypt.hash(password, +process.env.saltRound)
-            await new userModel({ name,email, password: hashPassword, role }).save()
+            await new userModel({ name, email, password: hashPassword, role }).save()
             return res.send({ "msg": "SignUp successful" })
 
         } else {
-           return res.send({ "msg": "wrong otp" })
+            return res.send({ "msg": "wrong otp" })
         }
-        
-        res.send({"msg":"waiting for otp verification"})
+
+        res.send({ "msg": "waiting for otp verification" })
     } catch (error) {
         res.send({ "error": error.message })
     }
@@ -64,7 +64,7 @@ userRouter.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body
         const user = await userModel.findOne({ email })
-        console.log(email,password)
+        console.log(email, password)
 
         if (user) {
             const matchPassword = bcrypt.compare(password, user.password)
@@ -73,7 +73,7 @@ userRouter.post("/login", async (req, res) => {
                 const refreshToken = jwt.sign({ userId: user._id }, process.env.jwtRefreshSecretKey, { expiresIn: "1d" })
                 res.cookie("token", token)
                 res.cookie("refreshToken", refreshToken)
-                res.send({ "msg": "login successful" })
+                res.send({ "msg": "login successful", "token": token })
             } else {
                 res.send({ "msg": "wrong password" })
             }
@@ -113,6 +113,39 @@ userRouter.get("/refreshToken", async (req, res) => {
             res.cookie("token", token)
             res.send({ "msg": "Token is refresh, please login again" })
         }
+    } catch (error) {
+        res.send({ "error": error.message })
+    }
+})
+
+
+//Github Oauth
+userRouter.get("/github", async (req, res) => {
+    try {
+        const { code } = req.query
+        let accessToken = await fetch("https://github.com/login/oauth/access_token", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                client_id: process.env.github_client_id,
+                client_secret: process.env.github_client_sct,
+                code
+            })
+        }).then((res) => res.json())
+
+        // console.log(accessToken.access_token)
+        res.send("here github auth after ")
+
+        const userDetail = await fetch("https://api.github.com/user", {
+            headers: {
+                Authorization: `Bearer ${accessToken.access_token}`
+            }
+        }).then((res) => res.json())
+
+        console.log(userDetail)
     } catch (error) {
         res.send({ "error": error.message })
     }
