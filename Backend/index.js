@@ -4,6 +4,7 @@ const { userRouter } = require("./router/user.router")
 const cookieParser= require("cookie-parser")
 const {authanticate} = require("./middleware/authanticate")
 const cors = require("cors")
+const { oauth } = require("./router/githubOauth")
 require("dotenv").config()
 const app = express()
 app.use(cors())
@@ -15,6 +16,9 @@ app.get("/",authanticate,(req,res)=>{
 })
 
 app.use("/user",userRouter)
+app.use("/auth",oauth)
+
+
 
 app.listen(process.env.port,async () => {
     try{

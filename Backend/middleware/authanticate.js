@@ -12,7 +12,9 @@ const authanticate = async (req,res,next)=>{
         
         if(decoded){
             req.body.userId= decoded.userId
+            req.body.role= decoded.role
             next()
+
         }
     } catch (error) {
         res.send({"error":error.message})

@@ -18,8 +18,8 @@ userRouter.post("/register", async (req, res) => {
         const { name, email, password, role } = req.body
         const clientSideOtp = req.query.otp
         const otp = await client.get("otp")
-        console.log(otp, clientSideOtp)
-        console.log(typeof (otp), typeof (clientSideOtp))
+     //   console.log(otp, clientSideOtp)
+      //  console.log(typeof (otp), typeof (clientSideOtp))
 
 
         // check if user is already register 
@@ -69,8 +69,8 @@ userRouter.post("/login", async (req, res) => {
         if (user) {
             const matchPassword = bcrypt.compare(password, user.password)
             if (matchPassword) {
-                const token = jwt.sign({ userId: user._id }, process.env.jwtSecretKey, { expiresIn: "1h" })
-                const refreshToken = jwt.sign({ userId: user._id }, process.env.jwtRefreshSecretKey, { expiresIn: "1d" })
+                const token = jwt.sign({ userId: user._id , role:user.role }, process.env.jwtSecretKey, { expiresIn: "7d" })
+                const refreshToken = jwt.sign({ userId: user._id , role:user.role }, process.env.jwtRefreshSecretKey, { expiresIn: "28d" })
                 res.cookie("token", token)
                 res.cookie("refreshToken", refreshToken)
                 res.send({ "msg": "login successful", "token": token })
@@ -118,37 +118,5 @@ userRouter.get("/refreshToken", async (req, res) => {
     }
 })
 
-
-//Github Oauth
-userRouter.get("/github", async (req, res) => {
-    try {
-        const { code } = req.query
-        let accessToken = await fetch("https://github.com/login/oauth/access_token", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                client_id: process.env.github_client_id,
-                client_secret: process.env.github_client_sct,
-                code
-            })
-        }).then((res) => res.json())
-
-        // console.log(accessToken.access_token)
-        res.send("here github auth after ")
-
-        const userDetail = await fetch("https://api.github.com/user", {
-            headers: {
-                Authorization: `Bearer ${accessToken.access_token}`
-            }
-        }).then((res) => res.json())
-
-        console.log(userDetail)
-    } catch (error) {
-        res.send({ "error": error.message })
-    }
-})
 
 module.exports = { userRouter }
