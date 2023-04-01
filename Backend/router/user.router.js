@@ -120,16 +120,6 @@ userRouter.get("/refreshToken", async (req, res) => {
 })
 
 
-userRouter.get('/auth/google',
-    passport.authenticate('google', { scope: ['profile', 'email'] }));
-
-userRouter.get('/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/login', session: false }),
-    function (req, res) {
-        // Successful authentication, redirect home.
-        console.log(req.user);
-        res.redirect('index.html')
-    });
 
 
 
