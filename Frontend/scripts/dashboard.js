@@ -1,8 +1,10 @@
 
-$(function (){
+$(function () {
     $("nav").load("navbar.html")
 })
-
+$(function () {
+    $("footer").load("footer.html")
+})
 
 // for title date display
 var today = new Date();
@@ -180,6 +182,19 @@ function stopFunction() {
 
     parts = timeElapsed.split(' ')
     numericValue = parseInt(parts[0])
+    if (parts[1] === "sec") {
+        if (numericValue >= 60) {
+            numericValue = Math.round(numericValue / 60);
+            parts[1] = "min";
+        }
+    } else if (parts[1] === "min") {
+        if (numericValue >= 60) {
+            numericValue = Math.round(numericValue / 60);
+            parts[1] = "hrs";
+        }
+    } else if (parts[1] === "hrs") {
+        // do nothing
+    }
 
 
     if (lastClickedButton === 'Productive') {
@@ -286,7 +301,7 @@ const messageDisplay = document.getElementById("message-display");
 const messageInput = document.getElementById("message-input");
 
 
-const socket = new WebSocket("ws://localhost:3000");
+const socket = new WebSocket("ws://localhost:8000");
 
 
 socket.onopen = function (event) {
