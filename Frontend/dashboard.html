@@ -16,10 +16,13 @@
     <nav></nav>
     <div id="container">
         <div id="dash-menu">
-            <a href="">My TimeFrame</a>
+            <a href="dashboard.html">My TimeFrame</a>
             <a href="">Projects</a>
-            <a href="">Users</a>
-            <a href="">Settings</a>
+            <a href="users.html">Users</a>
+            <div class="settings">
+                <a href="">Settings</a>
+                <button id="logout-btn">Logout</button>
+            </div>
         </div>
         <div id="main-dash">
             <h1>My TimeFrame</h1>
@@ -72,13 +75,13 @@
                     <div>
                         <h3>Unproductive Apps</h3>
                     </div>
-                    <div id="unproductive-data">No data collected</div>
+                    <div id="unproductive-data"></div>
                 </div>
                 <div id="idle-apps">
                     <div>
                         <h3>Idle Apps</h3>
                     </div>
-                    <div id="idle-data">No data collected</div>
+                    <div id="idle-data"></div>
                 </div>
             </div>
             <div id="categories">
@@ -118,8 +121,8 @@
             <button class="activity-button" id="idle-button">Idle</button>
         </div>
     </div>
+    <footer></footer>
 </body>
-<footer></footer>
 
 </html>
 <script src="./scripts/dashboard.js"></script>

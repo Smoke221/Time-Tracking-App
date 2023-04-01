@@ -22,7 +22,8 @@
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" placeholder="Type in your email address" required>
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Create a password" required minlength="8">
+                    <input type="password" id="password" name="password" placeholder="Create a password" required
+                        minlength="8">
                     <p>By signing up, you agree to our <a href="">terms</a> and <a href="">privacy policy.</a></p>
                     <button type="submit" id="submit-btn">SIGN UP FOR FREE</button>
                 </form>
@@ -30,10 +31,10 @@
                 <span id="connect">Or connect with</span>
 
                 <div id="oauth">
-                    <img src="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587515358_10512.png" alt="google">
-                    <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="facebook">
-                    <img src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png" alt="twitter">
-                    <!-- <img src="https://pbs.twimg.com/profile_images/1508518003184349187/1KQYoqPY_400x400.png" alt="linkdlin"> -->
+                    <a id="google-auth-btn" href="#"><img
+                            src="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587515358_10512.png"
+                            alt="google"></a>
+                    <a id="github-auth-btn" href=""><img id="github-logo" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub"></a>
 
                 </div>
         </div>
@@ -67,19 +68,28 @@
                 if (res.msg === "SignUp successful") {
                     window.open("signin.html")
                     //swal("email already register");
-                    
-                } else if(res.msg==="user is already register"){
+
+                } else if (res.msg === "user is already register") {
                     alert("user already register");
                     window.open("signin.html")
                 }
                 else {
                     window.open("otp.html")
-                    localStorage.setItem("userInfo",JSON.stringify(payload))
+                    localStorage.setItem("userInfo", JSON.stringify(payload))
                 }
 
             })
             .catch(err => console.log(err))
     })
+
+
+    const googleAuthBtn = document.getElementById('google-auth-btn');
+
+    googleAuthBtn.addEventListener('click', () => {
+        const authLink = 'http://localhost:8000/user/auth/google';
+        window.location.href = authLink;
+    });
+
 </script>
 
 </html>

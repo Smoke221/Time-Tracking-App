@@ -1,7 +1,7 @@
 const WebSocketServer = require("ws");
 require("dotenv").config()
 
-const wss = new WebSocketServer.Server({ port: 3000 });
+const wss = new WebSocketServer.Server({ port: 8000 });
 
 
 wss.on('connection', function connection(ws) {
