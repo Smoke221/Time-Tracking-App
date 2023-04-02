@@ -1,3 +1,11 @@
+$(function () {
+  $("footer").load("footer.html")
+})
+$(function () {
+    $("nav").load("navbar.html")
+})
+
+
 var swiper = new Swiper(".mySwiper", {
   cssMode: true,
   navigation: {

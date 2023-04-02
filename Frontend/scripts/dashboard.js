@@ -1,7 +1,7 @@
 
-$(function () {
-    $("nav").load("navbar.html")
-})
+// $(function () {
+//     $("nav").load("navbar.html")
+// })
 $(function () {
     $("footer").load("footer.html")
 })

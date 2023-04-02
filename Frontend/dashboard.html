@@ -9,13 +9,41 @@
     <link rel="stylesheet" href="./style/dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="style/index.css">
 </head>
 
 <body>
     <!-- insert nav bar here -->
+
     <nav>
-       
+
+        <div class="logo-img"><a href="index.html"> <img src="./images/Time Frame (1).png" alt="logo"></div></a>
+        <div id="menu-option">
+            <a href="index.html"><button>Home</button></a>
+            <a href="signin.html"><button>Dashbord</button></a>
+            <a href="#"><button>FAQ</button></a>
+            <a href="#"><button>Blogs</button></a>
+
+            <a href=""><button>Services</button></a>
+
+
+        </div>
+        <a id="hamburger" href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+
+        <div class="login-signup">
+            <a href="index.html"><button>Logout</button></a>
+
+            <!-- <a href="signin.html"><button id="loginbtn">Login</button></a>
+            <a href="signup.html"><button id="signupbtn">SignUp</button></a> -->
+
+        </div>
+
     </nav>
+   
+
+    
    
     <div id="container">
         <div id="dash-menu">
@@ -27,7 +55,7 @@
                 <button id="logout-btn">Logout</button>
             </div>
         </div>
-        <div id="main-dash">
+        <div id="main-dash"> 
             <h1>My TimeFrame</h1>
             <div class="timer-container">
                 <button class="timer-button" id="timer-button">Start</button>

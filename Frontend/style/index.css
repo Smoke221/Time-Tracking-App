@@ -5,12 +5,14 @@
 
 }
 
-.container {
+.container2 {
   width: 100%;
+  /* margin:auto; */
   padding-left: 20px;
   padding-right: 20px;
-  background-color: aliceblue;
+  background-color:aliceblue;
   overflow-y: auto;
+
 }
 
 nav {
@@ -144,6 +146,7 @@ button:hover {
 .company-logo {
   height: 200px;
   display: flex;
+  margin-top: 10%;
   justify-content: space-around;
   gap: 10px;
 }
@@ -344,6 +347,11 @@ color: black;
 #hamburger {
   display: none;
 }
+/* #imported-footer {
+  width: 100%;
+   background-color: yellow;
+   border: 1px solid red;
+} */
  
 
 
