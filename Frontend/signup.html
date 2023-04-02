@@ -8,6 +8,7 @@
     <title>signup</title>
     <link rel="stylesheet" href="./style/signup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -86,7 +87,7 @@
     const googleAuthBtn = document.getElementById('google-auth-btn');
 
     googleAuthBtn.addEventListener('click', () => {
-        const authLink = 'http://localhost:8000/user/auth/google';
+        const authLink = 'http://localhost:8000/auth/google';
         window.location.href = authLink;
     });
 

@@ -19,8 +19,8 @@ userRouter.post("/register", async (req, res) => {
         const { name, email, password, role } = req.body
         const clientSideOtp = req.query.otp
         const otp = await client.get("otp")
-        console.log(otp, clientSideOtp)
-        console.log(typeof (otp), typeof (clientSideOtp))
+     //   console.log(otp, clientSideOtp)
+      //  console.log(typeof (otp), typeof (clientSideOtp))
 
 
         // check if user is already register 
@@ -70,11 +70,11 @@ userRouter.post("/login", async (req, res) => {
         if (user) {
             const matchPassword = bcrypt.compare(password, user.password)
             if (matchPassword) {
-                const token = jwt.sign({ userId: user._id }, process.env.jwtSecretKey, { expiresIn: "1h" })
-                const refreshToken = jwt.sign({ userId: user._id }, process.env.jwtRefreshSecretKey, { expiresIn: "1d" })
+                const token = jwt.sign({ userId: user._id , role:user.role }, process.env.jwtSecretKey, { expiresIn: "7d" })
+                const refreshToken = jwt.sign({ userId: user._id , role:user.role }, process.env.jwtRefreshSecretKey, { expiresIn: "28d" })
                 res.cookie("token", token)
                 res.cookie("refreshToken", refreshToken)
-                res.send({ "msg": "login successful" })
+                res.send({ "msg": "login successful","name": user.name})
             } else {
                 res.send({ "msg": "wrong password" })
             }
@@ -118,20 +118,4 @@ userRouter.get("/refreshToken", async (req, res) => {
         res.send({ "error": error.message })
     }
 })
-
-
-userRouter.get('/auth/google',
-    passport.authenticate('google', { scope: ['profile', 'email'] }));
-
-userRouter.get('/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/login', session: false }),
-    function (req, res) {
-        // Successful authentication, redirect home.
-        console.log(req.user);
-        res.redirect('index.html')
-    });
-
-
-
-
 module.exports = { userRouter }

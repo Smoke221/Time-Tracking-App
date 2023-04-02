@@ -1,6 +1,6 @@
 const express = require("express")
 const { userDataModel } = require("../model/userData")
-const {userModel} = require("../model/user.model")
+const { userModel } = require("../model/user.model")
 
 const dataRouter = express.Router()
 
@@ -10,36 +10,39 @@ dataRouter.get('/', (req, res) => {
 
 dataRouter.post("/myTimeFrame", async (req, res) => {
     try {
-        const { arrivalTime,
+        const { startTime,
             productiveTimeElapsed,
             unproductiveTimeElapsed,
             idleTimeElapsed,
-            deskTimeElapsed } = req.body;
+            deskTimeElapsed,
+            timeAtWorkTimeElapsed} = req.body;
 
-        // const existingRecord = await userDataModel.findOne({ arrivalTime });
+        const existingRecord = await userDataModel.findOne({ startTime });
 
-        // if (existingRecord) {
-        //     await userDataModel.updateOne({ arrivalTime }, {
-        //         $set: {
-        //             productiveTimeElapsed,
-        //             unproductiveTimeElapsed,
-        //             idleTimeElapsed,
-        //             deskTimeElapsed
-        //         }
-        //     });
-        //     res.send({ "msg": "updated the timeFrames" });
-        // } else {
-        let time = await new userDataModel({
-            arrivalTime,
-            productiveTimeElapsed,
-            unproductiveTimeElapsed,
-            idleTimeElapsed,
-            deskTimeElapsed
-        })
-        await time.save();
+        if (existingRecord) {
+            let existingData = await userDataModel.find()
+            await userDataModel.updateOne({ startTime }, {
+                $inc: {
+                    productiveTimeElapsed,
+                    unproductiveTimeElapsed,
+                    idleTimeElapsed,
+                    deskTimeElapsed,
+                    timeAtWorkTimeElapsed
+                }
+            });
+            res.send({ "msg": "updated the timeFrames","data":existingData });
+        } else {
+            await new userDataModel({
+                startTime,
+                productiveTimeElapsed,
+                unproductiveTimeElapsed,
+                idleTimeElapsed,
+                deskTimeElapsed,
+                timeAtWorkTimeElapsed
+            }).save();
 
-        res.send({ "msg": "stored the timeFrames" });
-        // }
+            res.send({ "msg": "stored the timeFrames" });
+        }
     } catch (error) {
         res.send({ "error": error.message });
     }
@@ -49,10 +52,10 @@ dataRouter.post("/myTimeFrame", async (req, res) => {
 dataRouter.get("/employees", async (req, res) => {
     try {
         let userInfo = await userModel.find()
-        if(userInfo){
+        if (userInfo) {
             res.json(userInfo)
-        }else{
-            res.send({"msg":"no users present"})
+        } else {
+            res.send({ "msg": "no users present" })
         }
     }
     catch (err) {

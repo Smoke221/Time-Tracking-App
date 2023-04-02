@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <title>Signin</title>
     <link rel="stylesheet" href="./style/signin.css">
 </head>
@@ -31,7 +32,7 @@
                 <span id="connect">Or connect with</span>
                 <div id="oauth">
                     <img src="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587515358_10512.png" alt="google">
-                    <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="facebook">
+                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="github">
                     <img src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png" alt="twitter">
                 </div>
         </div>
@@ -55,6 +56,7 @@
             password:document.getElementById("password").value
         }
        console.log(payload);
+       
         fetch(`http://localhost:8000/user/login`,{
             method: "POST",
             headers: {
@@ -66,8 +68,15 @@
         .then(res=>{
             console.log(res);
             if(res.msg==="login successful"){
+
                 alert(res.msg)
+
+                localStorage.setItem("loggedUser" ,res.name)
+
+
+                localStorage.setItem("token",res.token)
                 window.open("dashboard.html")
+
             }else if(res.error){
                 alert(res.error)
             }else{

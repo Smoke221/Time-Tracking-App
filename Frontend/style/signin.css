@@ -1,4 +1,6 @@
-
+* {
+    font-family: 'Lato', sans-serif;
+}
 #signupcont {
     margin-top: 20px;
     width: 80%;

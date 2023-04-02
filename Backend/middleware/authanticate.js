@@ -12,7 +12,7 @@ const authanticate = async (req,res,next)=>{
         
         if(decoded){
             req.body.userId= decoded.userId
-            console.log(decoded.userId);
+            req.body.role= decoded.role
             next()
         }else{
             res.send({"msg":"you have to login to access"})
