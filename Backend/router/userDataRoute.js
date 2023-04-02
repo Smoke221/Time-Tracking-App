@@ -14,18 +14,20 @@ dataRouter.post("/myTimeFrame", async (req, res) => {
             productiveTimeElapsed,
             unproductiveTimeElapsed,
             idleTimeElapsed,
-            deskTimeElapsed } = req.body;
+            deskTimeElapsed,
+            timeAtWorkTimeElapsed} = req.body;
 
         const existingRecord = await userDataModel.findOne({ startTime });
 
         if (existingRecord) {
             let existingData = await userDataModel.find()
             await userDataModel.updateOne({ startTime }, {
-                $set: {
+                $inc: {
                     productiveTimeElapsed,
                     unproductiveTimeElapsed,
                     idleTimeElapsed,
-                    deskTimeElapsed
+                    deskTimeElapsed,
+                    timeAtWorkTimeElapsed
                 }
             });
             res.send({ "msg": "updated the timeFrames","data":existingData });
@@ -35,7 +37,8 @@ dataRouter.post("/myTimeFrame", async (req, res) => {
                 productiveTimeElapsed,
                 unproductiveTimeElapsed,
                 idleTimeElapsed,
-                deskTimeElapsed
+                deskTimeElapsed,
+                timeAtWorkTimeElapsed
             }).save();
 
             res.send({ "msg": "stored the timeFrames" });
