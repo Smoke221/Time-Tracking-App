@@ -121,7 +121,7 @@ timerButton.addEventListener("click", () => {
         timerButton.textContent = 'Start';
         stopFunction();
         const payload = {
-            arrivalTime,
+            startTime,
             productiveTimeElapsed,
             unproductiveTimeElapsed,
             idleTimeElapsed,
@@ -135,6 +135,13 @@ timerButton.addEventListener("click", () => {
             body: JSON.stringify(payload)
         }).then(res => res.json())
             .then((res) => {
+                if(res.data){
+                    startTime = res.data[0].startTime
+                    productiveTimeElapsed = res.data[0].productiveTimeElapsed
+                    unproductiveTimeElapsed = res.data[0].unproductiveTimeElapsed
+                    idleTimeElapsed = res.data[0].idleTimeElapsed
+                    deskTimeElapsed = res.data[0].deskTimeElapsed
+                }
                 console.log(res);
             })
             .catch(err => console.log(err, err.message))

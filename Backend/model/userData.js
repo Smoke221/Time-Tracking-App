@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 
 const userDataSchema = mongoose.Schema({
-    arrivalTime: { type: Date },
+    startTime: { type: Date },
     productiveTimeElapsed: { type: String },
     unproductiveTimeElapsed: { type: String },
     idleTimeElapsed: { type: String },
