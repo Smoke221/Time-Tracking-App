@@ -1,4 +1,3 @@
-
 $(function () {
     $("nav").load("navbar.html")
 })
@@ -37,6 +36,79 @@ const productiveButton = document.querySelector("#productive-button");
 const unproductiveButton = document.querySelector("#unproductive-button");
 const idleButton = document.querySelector("#idle-button");
 
+let dbStart = localStorage.getItem("starttime") || 0
+let dbproductive = localStorage.getItem("productivetime") || 0
+let dbunproductive = localStorage.getItem("unproductivetime") || 0
+let dbidle = localStorage.getItem("idletime") || 0
+let dbdesk = localStorage.getItem("desktime") || 0
+let dbtimeatwork = localStorage.getItem("timeatwork") || 0
+let dbproductivity = localStorage.getItem("productivity") || 0
+
+if (dbproductive == 0) {
+    dbproductive = "-";
+} else if (dbproductive >= 60) {
+    dbproductive = Math.floor(dbproductive / 60);
+    if (dbproductive >= 60) {
+        dbproductive += " hr";
+    } else {
+        dbproductive += " min";
+    }
+} else {
+    dbproductive += " sec";
+}
+
+if (dbunproductive == 0) {
+    dbunproductive = "-";
+} else if (dbunproductive >= 60) {
+    dbunproductive = Math.floor(dbunproductive / 60);
+    if (dbunproductive >= 60) {
+        dbunproductive += " hr";
+    } else {
+        dbunproductive += " min";
+    }
+} else {
+    dbunproductive += " sec";
+}
+
+if (dbidle == 0) {
+    dbidle = "-";
+} else if (dbidle >= 60) {
+    dbidle = Math.floor(dbidle / 60);
+    if (dbidle >= 60) {
+        dbidle += " hr";
+    } else {
+        dbidle += " min";
+    }
+} else {
+    dbidle += " sec";
+}
+
+if (dbdesk == 0) {
+    dbdesk = "-";
+} else if (dbdesk >= 60) {
+    dbdesk = Math.floor(dbdesk / 60);
+    if (dbdesk >= 60) {
+        dbdesk += " hr";
+    } else {
+        dbdesk += " min";
+    }
+} else {
+    dbdesk += " sec";
+}
+
+if (dbtimeatwork == 0) {
+    dbtimeatwork = "-";
+} else if (dbtimeatwork >= 60) {
+    dbtimeatwork = Math.floor(dbtimeatwork / 60);
+    if (dbtimeatwork >= 60) {
+        dbtimeatwork += " hr";
+    } else {
+        dbtimeatwork += " min";
+    }
+} else {
+    dbtimeatwork += " sec";
+}
+
 var startTime;
 let timerIntervalId;
 var screenTime;
@@ -48,43 +120,6 @@ window.onload = function () {
 };
 
 
-// timerButton.addEventListener("click", function () {
-//     if (!startTime) {
-//         startTime = new Date();
-//         var timeString = startTime.toLocaleTimeString();
-//         // console.log(timeString);
-//         timerIntervalId = setInterval(updateTimerDisplay, 1000);
-//         popUp.style.display = "block"
-//     } else {
-//         clearInterval(timerIntervalId);
-//         startTime = null;
-//         updateTimerDisplay();
-
-
-//         const currentTime = new Date();
-//         let currTimeString = currentTime.toLocaleTimeString()
-//         const timeElapsed = currTimeString - timeString;
-
-//         // Convert milliseconds to minutes
-//         const minutesElapsed = Math.floor(timeElapsed / 60000);
-
-//         let productiveTimeElapsed = parseInt(productiveTime.textContent) || 0;
-//         productiveTimeElapsed += minutesElapsed;
-//         productiveTime.textContent = productiveTimeElapsed;
-
-//         const deskTimeElapsed = parseInt(deskTime.textContent) || 0;
-//         deskTime.textContent = deskTimeElapsed + minutesElapsed;
-
-//         const arrivalTimeElapsed = parseInt(arrivalTime.textContent) || 0;
-//         // Convert milliseconds to minutes
-//         timeAtWork.textContent = Math.floor((currentTime - arrivalTimeElapsed) / 60000);
-
-//         // Calculate productivity as a percentage of time spent at the desk
-//         const deskTimeMinutes = deskTimeElapsed / 60000;
-//         productivity.textContent = `${Math.floor((productiveTimeElapsed / deskTimeMinutes) * 100)}%`;
-
-//     }
-// });
 
 
 let isStarted = false;
@@ -101,6 +136,9 @@ var stopTime;
 var stopTimeString;
 var numericValue;
 var parts;
+var timeAtWorkTimeElapsed;
+var productivityData;
+var arrivalTimeElapsed;
 
 productiveAppsDiv.textContent = 'No data collected'
 unproductiveAppsDiv.textContent = 'No data collected'
@@ -127,7 +165,8 @@ timerButton.addEventListener("click", () => {
             productiveTimeElapsed,
             unproductiveTimeElapsed,
             idleTimeElapsed,
-            deskTimeElapsed
+            deskTimeElapsed,
+            timeAtWorkTimeElapsed
         }
         fetch(`http://localhost:8000/app/myTimeFrame`, {
             method: "POST",
@@ -137,11 +176,32 @@ timerButton.addEventListener("click", () => {
             body: JSON.stringify(payload)
         }).then(res => res.json())
             .then((res) => {
+
+                if (res.data) {
+                    console.log(res.data);
+                    // let starttime = res.data[0].startTime
+                    localStorage.setItem("starttime", res.data[0].startTime)
+                    // let productivetime = res.data[0].productiveTimeElapsed
+                    localStorage.setItem("productivetime", res.data[0].productiveTimeElapsed)
+                    // let unproductivetime = res.data[0].unproductiveTimeElapsed
+                    localStorage.setItem("unproductivetime", res.data[0].unproductiveTimeElapsed)
+                    // let idletime = res.data[0].idleTimeElapsed
+                    localStorage.setItem("idletime", res.data[0].idleTimeElapsed)
+                    // deskTime.textContent= res.data[0].deskTimeElapsed + parts[1]
+                    localStorage.setItem("desktime", res.data[0].deskTimeElapsed)
+                    localStorage.setItem("timeatwork", res.data[0].timeAtWorkTimeElapsed)
+                    // localStorage.setItem("productivity",res.data[0].productivityData)
+                }
+
                 console.log(res);
             })
             .catch(err => console.log(err, err.message))
     }
 })
+
+
+
+
 function startFunction() {
     startTime = new Date();
     timeString = startTime.toLocaleTimeString();
@@ -188,13 +248,15 @@ function stopFunction() {
         if (numericValue >= 60) {
             numericValue = Math.round(numericValue / 60);
             parts[1] = "min";
+            localStorage.setItem('timeFormat', parts[1])
         }
     } else if (parts[1] === "min") {
         if (numericValue >= 60) {
             numericValue = Math.round(numericValue / 60);
-            parts[1] = "hrs";
+            parts[1] = "hr";
+            localStorage.setItem('timeFormat', parts[1])
         }
-    } else if (parts[1] === "hrs") {
+    } else if (parts[1] === "hr") {
         // do nothing
     }
 
@@ -207,7 +269,8 @@ function stopFunction() {
         handleIdle()
     }
 
-    timeAtWork.textContent = unproductiveTimeElapsed + productiveTimeElapsed + parts[1]
+    timeAtWorkTimeElapsed = unproductiveTimeElapsed + productiveTimeElapsed
+    timeAtWork.textContent = timeAtWorkTimeElapsed + parts[1]
 
 
 
@@ -235,6 +298,13 @@ function stopFunction() {
     }
 }
 
+// arrivalTime.textContent = dbStart.toLocaleTimeString()
+productiveTime.textContent = dbproductive
+unproductiveTime.textContent = dbunproductive
+idleTime.textContent = dbidle
+deskTime.textContent = dbdesk
+timeAtWork.textContent = dbtimeatwork
+// productivity.textContent = dbproductivity + "%"
 
 function handleProductive() {
     productiveTimeElapsed = parseInt(productiveTime.textContent) || 0;
@@ -246,8 +316,8 @@ function handleProductive() {
     deskTimeElapsed += numericValue
     deskTime.textContent = deskTimeElapsed + parts[1]
 
-
-    productivity.textContent = `${Math.floor((productiveTimeElapsed / deskTimeElapsed) * 100)}%`;
+    productivityData = `${Math.floor((productiveTimeElapsed / deskTimeElapsed) * 100)}`
+    productivity.textContent = productivityData + "%"
 }
 
 function handleUnproductive() {
