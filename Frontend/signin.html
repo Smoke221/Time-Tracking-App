@@ -66,10 +66,15 @@
         .then(res=>{
             console.log(res);
             if(res.msg==="login successful"){
+
                 alert(res.msg)
+
+                localStorage.setItem("loggedUser" ,res.name)
+
 
                 localStorage.setItem("token",res.token)
                 window.open("dashboard.html")
+
             }else if(res.error){
                 alert(res.error)
             }else{

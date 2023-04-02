@@ -74,7 +74,7 @@ userRouter.post("/login", async (req, res) => {
                 const refreshToken = jwt.sign({ userId: user._id , role:user.role }, process.env.jwtRefreshSecretKey, { expiresIn: "28d" })
                 res.cookie("token", token)
                 res.cookie("refreshToken", refreshToken)
-                res.send({ "msg": "login successful", "token": token })
+                res.send({ "msg": "login successful","name": user.name})
             } else {
                 res.send({ "msg": "wrong password" })
             }

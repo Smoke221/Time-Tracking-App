@@ -2,9 +2,11 @@
 $(function () {
     $("nav").load("navbar.html")
 })
+
 $(function () {
     $("footer").load("footer.html")
 })
+
 
 // for title date display
 var today = new Date();
