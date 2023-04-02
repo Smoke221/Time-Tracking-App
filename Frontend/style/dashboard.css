@@ -11,7 +11,8 @@
 }
 
 #main-dash {
-    margin-left: 13.3%;
+    margin-top: 20px;
+    margin-left: 13%;
 }
 
 #main-dash+h1 {
@@ -23,24 +24,28 @@
     flex-direction: column;
     background-color: #262c30;
     height: 100vh;
-    padding: 2rem;
     position: fixed;
-    top: 0;
+    top: 11%;
     left: 0;
     bottom: 0;
-    width: 150px;
+    width: 180px;
 }
 
 #dash-menu>a {
     text-decoration: none;
     color: white;
-    margin: 10px 10px;
+    margin: 20px 20px;
+}
+
+#dash-menu>a:hover {
+    background-color: #7ca962;
 }
 
 .timer-container {
     display: flex;
     align-items: center;
     gap: 1rem;
+    font-size: 25px;
 }
 
 #dash-container {
@@ -48,7 +53,8 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     height: 40vh;
-    width: 200%;
+    /* width: 200%; */
+    width: 140%;
     gap: 30px;
     box-sizing: border-box;
     margin-top: 40px;
@@ -61,6 +67,7 @@
 #dash-container>div h3,
 #dash-container>div p {
     margin-left: 20px;
+    margin-top: 20px;
 }
 
 #dash-container>div p {
@@ -72,9 +79,10 @@
     display: none;
     height: 20vh;
     padding: 2rem;
-    margin-top: 20px;
-    background: #788084;
+    background: #737779;
     border-radius: 10px;
+    position: relative;
+    right: 25%;
 }
 
 .activity-button {
@@ -95,7 +103,8 @@
 #track-apps {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    width: 200%;
+    /* width: 200%; */
+    width: 140%;
     margin-top: 20px;
 }
 
@@ -125,7 +134,9 @@
 
 /* category container */
 #categories {
-    width: 200%;
+    /* width: 200%; */
+    width: 140%;
+    margin-bottom: 50px;
 }
 
 #categories>h3 {
@@ -226,4 +237,94 @@ li {
     height: 30px;
     flex: 1;
     margin-right: 10px;
+}
+
+/* css for chat box */
+#chat-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+#chat-window {
+    display: none;
+    position: fixed;
+    bottom: 1.5%;
+    right: 0;
+    width: 300px;
+    height: 400px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow-y: scroll;
+    padding: 10px;
+    z-index: 9998;
+}
+
+#message-display {
+    height: 300px;
+}
+
+#message-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+}
+
+/* logout under settings */
+.settings {
+    position: relative;
+    display: inline-block;
+    margin: 20px 20px;
+}
+.settings>a{
+    text-decoration: none;
+    color: white;
+}
+#logout-btn {
+    margin-top: 2px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 25%;
+    transform: translateX(-50%);
+}
+
+.settings:hover #logout-btn {
+    display: block;
+}
+
+#arrival-time>p,#left-time>p,#productivity>p{
+    font-size: large;
+    color: green;
+    font-weight: bolder;
+}
+#productive-time>p,#desk-time>p,#time-at-work>p{
+    font-size: larger;
+    color: #ed3034;
+    font-weight: bolder;
+}
+#Unproductive>p,#idle>p{
+    color: #ff6633;
+    font-size: larger;
+    font-weight: bolder;
+}
+/* apps font css */
+#productive-data,#unproductive-data,#idle-data{
+    font-size: larger;
+    color: black;
+    font-weight: 500;
 }

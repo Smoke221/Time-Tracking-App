@@ -7,16 +7,24 @@
     <title id="title">Time Frame |</title>
     <link rel="stylesheet" href="./style/dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
     <!-- insert nav bar here -->
+    <nav>
+       
+    </nav>
+   
     <div id="container">
         <div id="dash-menu">
-            <a href="">My TimeFrame</a>
+            <a href="dashboard.html">My TimeFrame</a>
             <a href="">Projects</a>
-            <a href="">Users</a>
-            <a href="">Settings</a>
+            <a href="users.html">Users</a>
+            <div class="settings">
+                <a href="">Settings</a>
+                <button id="logout-btn">Logout</button>
+            </div>
         </div>
         <div id="main-dash">
             <h1>My TimeFrame</h1>
@@ -69,16 +77,17 @@
                     <div>
                         <h3>Unproductive Apps</h3>
                     </div>
-                    <div id="unproductive-data">No data collected</div>
+                    <div id="unproductive-data"></div>
                 </div>
                 <div id="idle-apps">
                     <div>
                         <h3>Idle Apps</h3>
                     </div>
-                    <div id="idle-data">No data collected</div>
+                    <div id="idle-data"></div>
                 </div>
             </div>
-            <div id="categories"> <h3>Categories</h3>
+            <div id="categories">
+                <h3>Categories</h3>
                 <div id="category-data">
                     <h4>No data collected</h4>
                     <p>Download and log into the desktop app to track URL and app productivity</p>
@@ -99,6 +108,13 @@
                 </div>
 
             </div>
+            <div id="chat-box">
+                <button id="chat-btn">Chat</button>
+                <div id="chat-window">
+                    <div id="message-display"></div>
+                    <input type="text" id="message-input" placeholder="Type a message...">
+                </div>
+            </div>
         </div>
         <div id="activity-popup" class="hidden">
             <h2>Select Activity Type</h2>
@@ -107,6 +123,7 @@
             <button class="activity-button" id="idle-button">Idle</button>
         </div>
     </div>
+    <footer></footer>
 </body>
 
 </html>

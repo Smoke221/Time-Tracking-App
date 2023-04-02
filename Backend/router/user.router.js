@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const { userModel } = require("../model/user.model");
 const { client } = require("../configs/redis");
 const { generateOtpAndSendEmail } = require("../nodemailer");
+const { passport } = require("../middleware/google_oAuth")
 const otpGenerator = require("otp-generator")
 const userRouter = express.Router();
 require("dotenv").config();
@@ -117,6 +118,4 @@ userRouter.get("/refreshToken", async (req, res) => {
         res.send({ "error": error.message })
     }
 })
-
-
 module.exports = { userRouter }

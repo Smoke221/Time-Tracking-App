@@ -67,8 +67,9 @@
             console.log(res);
             if(res.msg==="login successful"){
                 alert(res.msg)
+
                 localStorage.setItem("token",res.token)
-                window.open("deshbord.html")
+                window.open("dashboard.html")
             }else if(res.error){
                 alert(res.error)
             }else{

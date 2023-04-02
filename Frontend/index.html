@@ -13,39 +13,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Home-page</title>
+    <title>Home | Time Frame</title>
 </head>
 
 <body>
     <nav>
+
         <div class="logo-img"><a href="index.html"> <img src="./images/Time Frame (1).png" alt="logo"></div></a>
         <div id="menu-option">
-            <button><a href="index.html"></a>Home</button>
-            <button><a href="#stopwach-container"></a>Services</button>
-            <button><a href="#"></a>About Us</button>
-            <button><a href="#"></a>FAQ</button>
-            <button><a href="#"></a>Blogs</button>
-            <a id="toggeler" href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-              </a>
+            <a href="index.html"><button>Home</button></a>
+            <a href="dashboard.html"><button>Dashbord</button></a>
+            <a href="#"><button>FAQ</button></a>
+            <a href="#"><button>Blogs</button></a>
+
+            <a href=""><button>Services</button></a>
+
+           
         </div>
+        <a id="hamburger" href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+
         <div class="login-signup">
-            <button id="loginbtn"><a href="#"></a>Login</button>
-            <button id="signupbtn"><a href="#"></a>Sign up</button>
+            
+             <a href="signin.html"><button id="loginbtn">Login</button></a>
+            <a href="signup.html"><button id="signupbtn">SignUp</button></a>
+           
         </div>
-        <!-- /// togeler -->
-        <div class="topnav">
-           <!-- Navigation links (hidden by default) -->
-            <div id="myLinks">
-              <a href="index.html">Home</a>
-              <a href="#contact">Services</a>
-              <a href="#about">Aboutus</a>
-            </div>
-            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-              <i class="fa fa-bars"></i>
-            </a>
-          </div>
+
     </nav>
     <div class="container">
 
@@ -89,28 +84,28 @@
         </div>
         <div id="stopwatch-container">
             <!-- <div class="container"> -->
-                <h1>Manage Your Time With Us</h1>
-                <div id="time">
-                    <span class="digit" id="hr">
-                      00</span>
-                    <span class="txt">Hr</span>
-                    <span class="digit" id="min">
-                      00</span>
-                    <span class="txt">Min</span>
-                    <span class="digit" id="sec">
-                      00</span>
-                    <span class="txt">Sec</span>
-                    <span class="digit" id="count">
-                      00</span>
-                </div>
-                <div id="buttons">
-                    <button class="btn" id="start">
-                      Start</button>
-                    <button class="btn" id="stop">
-                      Stop</button>
-                    <button class="btn" id="reset">
-                      Reset</button>
-                </div>
+            <h1>Manage Your Time With Us</h1>
+            <div id="time">
+                <span class="digit" id="hr">
+                    00</span>
+                <span class="txt">Hr</span>
+                <span class="digit" id="min">
+                    00</span>
+                <span class="txt">Min</span>
+                <span class="digit" id="sec">
+                    00</span>
+                <span class="txt">Sec</span>
+                <span class="digit" id="count">
+                    00</span>
+            </div>
+            <div id="buttons" class="stop-butt">
+                <button class="btn" id="start">
+                    Start</button>
+                <button class="btn" id="stop">
+                    Stop</button>
+                <button class="btn" id="reset">
+                    Reset</button>
+            </div>
             <!-- </div> -->
         </div>
         <div class="landing-part">
@@ -120,7 +115,8 @@
                 <p>A time tracker with additional workforce management features
                     that will help <br> you develop a high-performing team that smashes goals every time.</p>
                 <button>START FREE TRIAL</button> -->
-                <img src="https://desktime.com/static/web/new-homepage/universal-platform/universal-platform.webp" alt="">
+                <img src="https://desktime.com/static/web/new-homepage/universal-platform/universal-platform.webp"
+                    alt="">
             </div>
 
             <div class="info2">
@@ -128,7 +124,7 @@
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
-        
+
             </div>
         </div>
         <div class="mid-part">
@@ -161,320 +157,321 @@
             </div>
 
         </div>
-         <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" id="frame1">
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>John Doe</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" id="frame1">
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>John Doe</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
 
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
                         </div>
-                        <!-- ////// -->
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/syed-mazhar-ahmed.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>Sayad Ahmad</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
-
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
                         </div>
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/anders.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>Denis Riche</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
-
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
-                        </div>
-                        <!-- //// -->
                     </div>
-                    <div class="swiper-slide" id="frame1">
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>John Doe</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
+                    <!-- ////// -->
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/syed-mazhar-ahmed.jpg"
+                                    alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>Sayad Ahmad</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
 
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
                         </div>
-                        <!-- ////// -->
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>John Doe</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
-
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
                         </div>
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>John Doe</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
-
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
-                        </div>
-                        <!-- //// -->
                     </div>
-                    <div class="swiper-slide" id="frame1">
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>John Doe</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/anders.jpg" alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>Denis Riche</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
 
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
                         </div>
-                        <!-- ////// -->
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>John Doe</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
-
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
                         </div>
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>John Doe</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
-
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
-                        </div>
-                        <!-- //// -->
                     </div>
-                    <div class="swiper-slide" id="frame1">
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>John Doe</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
-
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
-                        </div>
-                        <!-- ////// -->
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>John Doe</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
-
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
-                        </div>
-                        <div id="blog-card">
-                            <div id="upper-part-blog">
-                                <div id="bloger-img">
-                                    <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
-                                </div>
-                                <div id="bloger-name">
-                                    <h3>John Doe</h3>
-                                    <p>CIO</p>
-                                    <h3>Rustomjee</h3>
-                                </div>
-
-                            </div>
-                            <div id="blog-content">
-                                DeskTime isn't just a time tracker. You can assign
-                                shifts
-                                and oversee absences, stay informed about remote workers
-                                and run a
-                                hybrid office all on one platform. dolor sit amet,
-                                consectetur adipisicing elit. Natus minima praesentium
-                                doloremque, vitae accusamus illum sunt ut voluptatum
-                                facilis suscipit soluta. Aut esse repellat non
-                                distinctio quod error numquam est?
-                            </div>
-                        </div>
-                        <!-- //// -->
-                    </div>
-                   
+                    <!-- //// -->
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-       
+                <div class="swiper-slide" id="frame1">
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>John Doe</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
 
-    </div>
+                        </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
+                        </div>
+                    </div>
+                    <!-- ////// -->
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>John Doe</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
+
+                        </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
+                        </div>
+                    </div>
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>John Doe</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
+
+                        </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
+                        </div>
+                    </div>
+                    <!-- //// -->
+                </div>
+                <div class="swiper-slide" id="frame1">
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>John Doe</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
+
+                        </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
+                        </div>
+                    </div>
+                    <!-- ////// -->
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>John Doe</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
+
+                        </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
+                        </div>
+                    </div>
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>John Doe</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
+
+                        </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
+                        </div>
+                    </div>
+                    <!-- //// -->
+                </div>
+                <div class="swiper-slide" id="frame1">
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>John Doe</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
+
+                        </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
+                        </div>
+                    </div>
+                    <!-- ////// -->
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>John Doe</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
+
+                        </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
+                        </div>
+                    </div>
+                    <div id="blog-card">
+                        <div id="upper-part-blog">
+                            <div id="bloger-img">
+                                <img src="https://desktime.com/static/web/testimonial-images/samir.jpg" alt="">
+                            </div>
+                            <div id="bloger-name">
+                                <h3>John Doe</h3>
+                                <p>CIO</p>
+                                <h3>Rustomjee</h3>
+                            </div>
+
+                        </div>
+                        <div id="blog-content">
+                            DeskTime isn't just a time tracker. You can assign
+                            shifts
+                            and oversee absences, stay informed about remote workers
+                            and run a
+                            hybrid office all on one platform. dolor sit amet,
+                            consectetur adipisicing elit. Natus minima praesentium
+                            doloremque, vitae accusamus illum sunt ut voluptatum
+                            facilis suscipit soluta. Aut esse repellat non
+                            distinctio quod error numquam est?
+                        </div>
+                    </div>
+                    <!-- //// -->
+                </div>
+
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+
+
+        </div>
 </body>
 
 

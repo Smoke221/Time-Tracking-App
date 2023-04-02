@@ -14,7 +14,8 @@ const authanticate = async (req,res,next)=>{
             req.body.userId= decoded.userId
             req.body.role= decoded.role
             next()
-
+        }else{
+            res.send({"msg":"you have to login to access"})
         }
     } catch (error) {
         res.send({"error":error.message})
