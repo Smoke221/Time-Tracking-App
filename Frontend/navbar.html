@@ -25,6 +25,7 @@
         <a id="hamburger" href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
+        <h3 id="welcome"></h3>
 
         <div class="login-signup">
             
@@ -36,7 +37,16 @@
            
         </div>
 
+      
+
     </nav>
 </body>
 </html>
 <script src="./scripts/index.js"></script>
+
+<script>
+    let logeduser = JSON.parse(localStorage.getItem("loggedUser")) || [];
+console.log(logeduser)
+document.querySelector("#welcome").textContent = logeduser.name;
+
+</script>

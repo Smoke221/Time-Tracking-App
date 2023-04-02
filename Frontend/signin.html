@@ -68,8 +68,10 @@
         .then(res=>{
             console.log(res);
             if(res.msg==="login successful"){
+
                 alert(res.msg)
                 window.open("index.html")
+                localStorage.setItem("loggedUser" ,res.name)
             }else if(res.error){
                 alert(res.error)
             }else{

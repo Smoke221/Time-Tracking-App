@@ -3,6 +3,10 @@ $(function (){
     $("nav").load("navbar.html")
 })
 
+let logeduser = JSON.parse(localStorage.getItem("loggedUser")) || [];
+console.log(logeduser)
+document.querySelector("#welcome").textContent = logeduser.name;
+
 
 // for title date display
 var today = new Date();
