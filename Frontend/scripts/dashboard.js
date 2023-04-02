@@ -277,7 +277,7 @@ function stopFunction() {
     if (productiveTimeElapsed === 0) {
         productiveAppsDiv.textContent = 'No data collected'
     } else {
-        productiveAppsDiv.textContent = productiveTimeElapsed + parts[1]
+        productiveAppsDiv.textContent ='Time spent on Produtive apps is' + ' ' + productiveTimeElapsed + parts[1]
 
     }
 
@@ -285,7 +285,7 @@ function stopFunction() {
     if (unproductiveTimeElapsed === 0) {
         unproductiveAppsDiv.textContent = 'No data collected'
     } else {
-        unproductiveAppsDiv.textContent = 'Time spent on unprodutive apps is' + ' ' + unproductiveTimeElapsed + parts[1]
+        unproductiveAppsDiv.textContent = 'Time spent on Unprodutive apps is' + ' ' + unproductiveTimeElapsed + parts[1]
 
     }
 
@@ -293,7 +293,7 @@ function stopFunction() {
     if (idleTimeElapsed === 0) {
         idleAppsDiv.textContent = 'No data collected'
     } else {
-        idleAppsDiv.textContent = idleTimeElapsed + parts[1]
+        idleAppsDiv.textContent ='Time spent on Idle apps is' + ' ' + idleTimeElapsed + parts[1]
 
     }
 }
