@@ -6,7 +6,7 @@
 
 #footer-last1 {
     padding-top: 5px;
-    width: 80%;
+    width: 75%;
     height: 50px;
     margin: auto;
     display: flex;
@@ -17,9 +17,9 @@
 #footer-first {
     justify-content: space-between;
     margin: auto;
-    width: 80%;
+    width: 75%;
     /* height: 450px; */
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
     /* border: 1px solid red; */
     display: flex;
     margin-bottom: 20px;
@@ -75,7 +75,7 @@
     /* border: 1px solid red; */
 }
 #footer-1stdiv{
-    width: 80%;
+    width: 75%;
     margin: auto;
 }
 #footer-img img{

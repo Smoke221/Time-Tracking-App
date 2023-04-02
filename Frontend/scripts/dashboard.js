@@ -1,9 +1,11 @@
 $(function () {
     $("nav").load("navbar.html")
 })
+
 $(function () {
     $("footer").load("footer.html")
 })
+
 
 // for title date display
 var today = new Date();
@@ -159,7 +161,7 @@ timerButton.addEventListener("click", () => {
         timerButton.textContent = 'Start';
         stopFunction();
         const payload = {
-            startTime,
+            arrivalTime,
             productiveTimeElapsed,
             unproductiveTimeElapsed,
             idleTimeElapsed,
@@ -174,6 +176,7 @@ timerButton.addEventListener("click", () => {
             body: JSON.stringify(payload)
         }).then(res => res.json())
             .then((res) => {
+
                 if (res.data) {
                     console.log(res.data);
                     // let starttime = res.data[0].startTime
@@ -189,6 +192,7 @@ timerButton.addEventListener("click", () => {
                     localStorage.setItem("timeatwork", res.data[0].timeAtWorkTimeElapsed)
                     // localStorage.setItem("productivity",res.data[0].productivityData)
                 }
+
                 console.log(res);
             })
             .catch(err => console.log(err, err.message))
