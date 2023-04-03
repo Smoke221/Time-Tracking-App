@@ -8,7 +8,8 @@ https://storied-paprenjak-8f2e60.netlify.app/
 ## Workflow
 
 As soon as you open our website you see a beautiful index page with a nav bar that consists for dashboard, login and signup
-![cw](https://user-images.githubusercontent.com/114225283/229429324-efe79183-2e3c-4e3b-9bf7-2857a9000cd2.png)
+![cw](https://user-images.githubusercontent.com/114225283/229430871-5cf1c5a4-99c4-41f1-9815-82afb2763890.png)
+
 
 If you want to use the app you need to signup and login.
 #### You need to verify your otp for the successful registration.
