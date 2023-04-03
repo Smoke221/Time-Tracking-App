@@ -8,7 +8,8 @@ https://storied-paprenjak-8f2e60.netlify.app/
 ## Workflow
 
 As soon as you open our website you see a beautiful index page with a nav bar that consists for dashboard, login and signup
-![cw](https://user-images.githubusercontent.com/114225283/229430871-5cf1c5a4-99c4-41f1-9815-82afb2763890.png)
+![cw1](https://user-images.githubusercontent.com/114225283/229429431-8d5fa54b-a302-4ed8-bf3e-832cd0d751d2.png)
+
 
 
 If you want to use the app you need to signup and login.
@@ -28,7 +29,7 @@ you have three activity types to select on
 On your right there is users section in the menu.
 Go to the users section you can see all the users that are logged in along with their info i.e, name,mail,role
 There are two roles one is manager and the other is employee
-![cw1](https://user-images.githubusercontent.com/114225283/229429431-8d5fa54b-a302-4ed8-bf3e-832cd0d751d2.png)
+![cw](https://user-images.githubusercontent.com/114225283/229430871-5cf1c5a4-99c4-41f1-9815-82afb2763890.png)
 
 
 ### Tech Stack
