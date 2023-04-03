@@ -1,5 +1,6 @@
-# Time Tracking
+# Time Frame
 
+### A time tracker with additional workforce management features that will help you develop a high-performing team that smashes goals every time.
 
 ## workflow
 Signup, login along with github and google auth
