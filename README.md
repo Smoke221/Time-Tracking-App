@@ -3,25 +3,23 @@
 ### A time tracker with additional workforce management features that will help you develop a high-performing team that smashes goals every time.
 
 ## workflow
-Signup, login along with github and google auth
 
-as soon as someone logs in we redirect them to homepage/dashboard
+As soon as you open our website you see a beautiful index page with a nav bar that consists for dashboard, login and signup
+if you want to use the app you need to signup and login.
+after  logging in you will be redirected to dashboard.
 
-
-in the dashboard we shall display a stopwatch on the right side and a small input box to fill the taskname
-
-on the left of dashboard we shall have a menu with timetrack, projects, users and settings(nothing in this as of now)
-
-
-a small team chat window in which same team members can chat with themselves 
-
-
-## Admin Works
-Admin/employeer can remove/blacklist users/employees and track their data
+Here is the place where all the action happens.
+You can start the timer and select the activity that you are working and the time updates in that particular section automatically when you stop the timer.
+you have three activity types to select on 
+  |--> Productive
+  |--> Unproductive
+  |--> Idle
+On your right there is users section in the menu.
+Go to the users section you can see all the users that are logged in along with their info i.e, name,mail,role
+There are two roles one is manager and the other is employee
 
 
 ## Structure
-
 ### Frontend
 #### HTML
       |-->Index
