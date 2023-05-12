@@ -29,13 +29,13 @@
                     <p><a href="">I forgot my password</a> <a href=""></a></p>
                 </form>
                 <hr>
-                <span id="connect">Or connect with</span>
+                <!-- <span id="connect">Or connect with</span>
                 <div id="oauth">
                     <img src="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587515358_10512.png"
                         alt="google">
                     <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="github">
                     <img src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png" alt="twitter">
-                </div>
+                </div> -->
         </div>
         <div id="signupright">
             <div>
@@ -61,7 +61,7 @@
             }
             console.log(payload);
 
-            fetch(`http://localhost:8000/user/login`, {
+            fetch(`https://zany-jade-kingfisher-ring.cyclic.app/user/login`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"

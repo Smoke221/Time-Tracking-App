@@ -10,7 +10,7 @@ let todos = [];
 let dtodos = [];
 // Retrieve todos from API and display them in the table
 function getTodos() {
-    fetch('http://localhost:8000/app/employees', {
+    fetch('https://zany-jade-kingfisher-ring.cyclic.app/app/employees', {
         method: 'GET',
         //  credentials: 'same-origin' 
         headers: {
@@ -57,7 +57,7 @@ todosTable.addEventListener('click', (event) => {
     if (event.target.classList.contains('deleteTodoBtn')) {
         const todoId = (event.target.dataset.id);
         // console.log(localStorage.getItem("token"));
-        fetch(`http://localhost:8000/app/deleteUser/${todoId}`, {
+        fetch(`https://zany-jade-kingfisher-ring.cyclic.app/app/deleteUser/${todoId}`, {
             method: 'DELETE',
             // credentials: 'include' ,
             headers: {
@@ -113,7 +113,7 @@ loginForm.addEventListener('submit', function (event) {
     // Perform login logic here...
     // ...
     if (email && password != "") {
-        fetch("http://localhost:8000/user/register", {
+        fetch("https://zany-jade-kingfisher-ring.cyclic.app/user/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formDataObject)
@@ -202,7 +202,7 @@ function doctordiv() {
 
 //////doctor get all the data
 function getDoctorTodos() {
-    fetch('localhost:8000/app/gettime', {
+    fetch('https://zany-jade-kingfisher-ring.cyclic.app/app/gettime', {
         method: 'GET',
         //  credentials: 'same-origin' 
         // headers: {

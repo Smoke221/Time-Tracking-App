@@ -29,15 +29,15 @@
                     <button type="submit" id="submit-btn">SIGN UP FOR FREE</button>
                 </form>
                 <hr>
-                <span id="connect">Or connect with</span>
+                <!-- <span id="connect">Or connect with</span> -->
 
-                <div id="oauth">
+                <!-- <div id="oauth">
                     <a id="google-auth-btn" href="#"><img
                             src="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587515358_10512.png"
                             alt="google"></a>
                     <a id="github-auth-btn" href=""><img id="github-logo" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub"></a>
 
-                </div>
+                </div> -->
         </div>
         <div id="signupright">
             <div>
@@ -59,7 +59,7 @@
             password: document.getElementById("password").value
         }
 
-        fetch(`http://localhost:8000/user/register`, {
+        fetch(`https://zany-jade-kingfisher-ring.cyclic.app/user/register`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -89,7 +89,7 @@
     const googleAuthBtn = document.getElementById('google-auth-btn');
 
     googleAuthBtn.addEventListener('click', () => {
-        const authLink = 'http://localhost:8000/auth/google';
+        const authLink = 'https://zany-jade-kingfisher-ring.cyclic.app/auth/google';
         window.location.href = authLink;
     });
 

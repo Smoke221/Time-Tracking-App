@@ -165,7 +165,7 @@ timerButton.addEventListener("click", () => {
             deskTimeElapsed,
             timeAtWorkTimeElapsed
         }
-        fetch(`http://localhost:8000/app/myTimeFrame`, {
+        fetch(`https://zany-jade-kingfisher-ring.cyclic.app/app/myTimeFrame`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
