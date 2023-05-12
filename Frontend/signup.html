@@ -58,7 +58,7 @@
             email: document.getElementById("email").value,
             password: document.getElementById("password").value
         }
-        fetch(`http://localhost:8000/user/register`, {
+        fetch(`https://panicky-foal-ring.cyclic.app/user/register`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -75,7 +75,8 @@
                     window.open("signin.html")
                 }
                 else {
-                    window.open("otp.html")
+                    // window.open("otp.html")
+                    window.open("signin.html")
                     localStorage.setItem("userInfo", JSON.stringify(payload))
                 }
 
@@ -87,7 +88,7 @@
     const googleAuthBtn = document.getElementById('google-auth-btn');
 
     googleAuthBtn.addEventListener('click', () => {
-        const authLink = 'http://localhost:8000/auth/google';
+        const authLink = 'https://relieved-bass-trench-coat.cyclic.app/auth/google';
         window.location.href = authLink;
     });
 
