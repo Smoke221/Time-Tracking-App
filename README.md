@@ -4,8 +4,8 @@
 ### A time tracker with additional workforce management features that will help you develop a high-performing team that smashes goals every time.
 
 ### Deployed link
-https://storied-paprenjak-8f2e60.netlify.app/
-
+<!-- https://storied-paprenjak-8f2e60.netlify.app/ -->
+https://comforting-bonbon-0a3e0a.netlify.app/
 ## Workflow
 
 As soon as you open our website you see a beautiful index page with a nav bar that consists for dashboard, login and signup
