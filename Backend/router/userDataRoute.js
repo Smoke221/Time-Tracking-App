@@ -63,7 +63,21 @@ dataRouter.get("/employees", async (req, res) => {
         res.send({ "msg": "error retrieving data from nongodb" })
     }
 })
-
+//get the time 
+dataRouter.get("/gettime", async(req,res) => {
+    try{
+        let data = await userDataModel.find()
+        if(data){
+            res.json(data)
+        }else{
+            res.send({"msg": "no data found"})
+        }
+    }
+    catch(err){
+        console.log(err);
+        res.send({ "msg": "error retrieving data from nongodb" })
+    }
+})
 
 dataRouter.delete("/deleteUser/:id", async (req, res) => {
     const userID = req.params.id

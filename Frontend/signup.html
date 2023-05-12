@@ -58,6 +58,7 @@
             email: document.getElementById("email").value,
             password: document.getElementById("password").value
         }
+
         fetch(`http://localhost:8000/user/register`, {
             method: "POST",
             headers: {
@@ -75,7 +76,8 @@
                     window.open("signin.html")
                 }
                 else {
-                    window.open("otp.html")
+                    // window.open("otp.html")
+                    window.open("signin.html")
                     localStorage.setItem("userInfo", JSON.stringify(payload))
                 }
 
