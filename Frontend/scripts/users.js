@@ -6,7 +6,7 @@ $(function () {
 })
 let container = document.querySelector(".users-container")
 
-fetch('http://localhost:8000/app/employees', {
+fetch('https://zany-jade-kingfisher-ring.cyclic.app/app/employees', {
     method: "GET",
     headers: {
         "Content-type": "application/json"
@@ -54,7 +54,7 @@ fetch('http://localhost:8000/app/employees', {
             // dltBtn.setAttribute("onclick","deleteUser()")
             dltBtn.addEventListener("click", async () => {
                 const userID = e._id
-                fetch(`http://localhost:8000/app/deleteUser/${userID}`, {
+                fetch(`https://zany-jade-kingfisher-ring.cyclic.app/app/deleteUser/${userID}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())
