@@ -1,11 +1,12 @@
 # Time Frame
 ## Time Tracking Application
 
-### A time tracker with additional workforce management features that will help you develop a high-performing team that smashes goals every time.
+### When you know how you spend your time, you can analyze your work trends and make smarter business decisions. Whether you're working solo or in a small team, time tracking software can give you a complete overview of your daily, weekly, monthly, and yearly work. A time tracker with additional workforce management features that will help you develop a high-performing team that smashes goals every time.
 
 ### Deployed link
 <!-- https://storied-paprenjak-8f2e60.netlify.app/ -->
 https://comforting-bonbon-0a3e0a.netlify.app/
+
 ## Workflow
 
 As soon as you open our website you see a beautiful index page with a nav bar that consists for dashboard, login and signup
