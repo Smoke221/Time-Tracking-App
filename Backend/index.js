@@ -2,6 +2,7 @@ const express = require("express")
 const { connection } = require("./configs/db")
 const { userRouter } = require("./router/user.router")
 const cookieParser = require("cookie-parser")
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const { authanticate } = require("./middleware/authanticate")
 const { dataRouter } = require("./router/userDataRoute")
 const {passport} = require("./middleware/google_oAuth")
@@ -27,7 +28,7 @@ app.use("/app", dataRouter)
 
 
 app.get('/auth/google',
-    passport.authenticate('google', { scope: ['profile', 'email'] }));
+    passport.authenticate('google', { scope: ['email', 'profile'] }));
 
 app.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/login', session: false }),
@@ -37,7 +38,7 @@ app.get('/auth/google/callback',
         res.redirect('/')
     });
 
-
+    
 app.listen(process.env.port, async () => {
     try {
         await connection
