@@ -86,7 +86,7 @@
 
             let userInfo = JSON.parse(localStorage.getItem("userInfo"))
             // console.log(userInfo)
-            fetch(`http://localhost:8000/user/register?otp=${otp}`, {
+            fetch(`https://zany-jade-kingfisher-ring.cyclic.app/user/register?otp=${otp}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

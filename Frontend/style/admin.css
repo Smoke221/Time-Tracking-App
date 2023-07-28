@@ -1,0 +1,165 @@
+/* Global Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: rgb(196, 252, 252); */
+}
+
+#container {
+    /* max-width: 1200px; */
+    padding-top: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    /* width: 90%; */
+    margin: auto;
+    gap: 10px;
+    /* border: 1px solid rgb(133, 4, 4); */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* Styles for First Div */
+
+#firstdiv {
+    /* background-color: #f1f1f1; */
+    padding: 20px;
+    width: 25%;
+
+}
+
+#firstdiv div {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#firstdiv div:hover {
+    /* background-color: blueviolet; */
+    text-decoration: underline;
+
+}
+
+/* Styles for Second Div */
+
+#seconddiv {
+    margin-top: 20px;
+    width: 75%;
+    /* border: 1px solid yellow; */
+}
+
+#seconddiv h1 {
+    text-align: center;
+    font-size: xx-large;
+}
+
+#openFormButton {
+    margin-bottom: 10px;
+}
+
+#loginFormContainer {
+    display: none;
+    margin-bottom: 20px;
+}
+
+#loginForm {
+    margin-top: 10px;
+}
+
+#loginForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#loginForm input[type="text"],
+#loginForm input[type="email"],
+#loginForm input[type="password"] {
+    padding: 8px;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+#todosTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#todosTable th,
+#todosTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+
+}
+
+#todosTable thead {
+    background-color: rgb(114, 0, 0);
+    color: white;
+    width: 100%;
+}
+
+#doctortodosTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#doctortodosTable th,
+#doctortodosTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#doctortodosTable thead {
+    background-color: rgb(114, 0, 0);
+    color: white;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    #loginForm input[type="text"],
+    #loginForm input[type="email"],
+    #loginForm input[type="password"] {
+        width: 80%;
+    }
+
+    #todosTable th,
+    #todosTable td {
+        font-size: 14px;
+
+    }
+
+    #doctortodosTable th,
+    #doctortodosTable td {
+        font-size: 14px;
+    }
+}
+
+body {
+    padding: 25px;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}
